@@ -8,4 +8,4 @@ This repository records my pregresses on NachOS machine preblems.
   
 ### MP3: CPU Scheduling  
   
-### MP4: Memory Management
+### MP4: Virtual Memory
