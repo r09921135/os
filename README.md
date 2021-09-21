@@ -1,6 +1,6 @@
 ## IM2003 Operating Systems
 ## Descriptions
-This repository records my progresses on NachOS machine preblems.  
+This repository records my progresses on NachOS machine problems.  
 
 ### MP1: System Call [[link]](https://github.com/r09921135/os/tree/master/mp1)
   
