@@ -416,7 +416,7 @@ SimpleThread(int which)
     int num;
     
     for (num = 0; num < 5; num++) {
-	cout << "*** thread " << which << " looped " << num << " times\n";
+	// cout << "*** thread " << which << " looped " << num << " times\n";
         kernel->currentThread->Yield();
     }
 }
@@ -457,7 +457,7 @@ Thread::SchedulingTest()
 	const int thread_num = 6;
 	char *name[thread_num] = {"A", "B", "C", "D", "E", "F"};
 	int thread_priority[thread_num] = {4, 2, 6, 5, 1, 3};
-	int thread_burst[thread_num] = {5, 8, 7, 2, 9, 3};
+	int thread_burst[thread_num] = {5, 8, 6, 2, 9, 3};
 	
 	Thread *t;
 	for (int i = 0; i < thread_num; i ++) {
