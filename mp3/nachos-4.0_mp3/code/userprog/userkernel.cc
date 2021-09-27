@@ -133,8 +133,8 @@ UserProgKernel::Run()
 void
 UserProgKernel::SelfTest() {
 
+    ThreadedKernel::SelfTest();
 /*
-    // ThreadedKernel::SelfTest();
 
     char ch;
 

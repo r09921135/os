@@ -155,7 +155,7 @@ void
 ConsoleOutput::PutChar(char ch)
 {
     ASSERT(putBusy == FALSE);
-    WriteFile(writeFileNo, &ch, sizeof(char));
+    WriteFile(writeFileNo, &ch, sizeof(char));  // WriteFile is defined in sysdep.cc
     putBusy = TRUE;
     kernel->interrupt->Schedule(this, ConsoleTime, ConsoleWriteInt);
 }

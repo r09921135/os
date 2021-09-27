@@ -57,6 +57,7 @@ main(int argc, char **argv)
 {
     int i;
     char *debugArg = "";
+    SchedulerType type = RR;
 
     // before anything else, initialize the debugging system
     for (i = 1; i < argc; i++) {
@@ -69,23 +70,24 @@ main(int argc, char **argv)
             cout << "Partial usage: nachos [-z -d debugFlags]\n";
 	} else if (strcmp(argv[i], "-z") == 0) {
             cout << copyright;
-	}
-
+	} else if (strcmp(argv[i], "-st") == 0) {
+            if(strcmp(argv[i + 1], "FCFS") == 0) {
+		type = FIFO;
+	    } else if (strcmp(argv[i + 1], "SJF") == 0) {
+		type = SJF;
+	    } else if (strcmp(argv[i + 1], "PRIORITY") == 0) {
+		type = Priority;
+	    } else if (strcmp(argv[i + 1], "RR") == 0) {
+		type = RR;
+	    } else {
+                cout << "Invalid scheduler type! Automatically set to be RR\n";
+            }
+        }
     }
+
     debug = new Debug(debugArg);
     
     DEBUG(dbgThread, "Entering main");
-
-    SchedulerType type = RR;
-    if(strcmp(argv[1], "FCFS") == 0) {
-	type = FIFO;
-    } else if (strcmp(argv[1], "SJF") == 0) {
-	type = SJF;
-    } else if (strcmp(argv[1], "PRIORITY") == 0) {
-	type = Priority;
-    } else if (strcmp(argv[1], "RR") == 0) {
-	type = RR;
-    }
 
     kernel = new KernelType(argc, argv);
     kernel->Initialize(type);
